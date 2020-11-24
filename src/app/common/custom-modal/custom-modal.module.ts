@@ -8,5 +8,5 @@ import { CustomModalService } from './custom-modal.service';
   // entryComponents: [CustomModalComponent],
   providers: [CustomModalService]
 })
-export class NgbModalModule {
+export class CustomModalModule {
 }
