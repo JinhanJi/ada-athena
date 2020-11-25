@@ -8,7 +8,6 @@ import { CustomModal } from 'src/app/common/custom-modal/custom-modal';
 })
 export class CustomTestDialogComponent extends CustomModal implements OnInit {
 
-  @Input() data: any;
   @Output() onConfirm = new EventEmitter<any>();
   @Output() onCancel = new EventEmitter<void>();
 

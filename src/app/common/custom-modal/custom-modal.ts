@@ -1,7 +1,6 @@
 import { Input, Output, EventEmitter } from "@angular/core";
 
 export abstract class CustomModal {
-    @Input() data: any;
     @Output() onConfirm = new EventEmitter<any>();
     @Output() onCancel = new EventEmitter<void>();
 

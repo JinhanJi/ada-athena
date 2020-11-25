@@ -16,7 +16,7 @@ export class CustomModalService {
     if (rootComponents.length) return rootComponents[0];
   }
 
-	public open(modal: Type<CustomModal>, data?: any): Promise<any> {
+	public open(modal: Type<CustomModal>): Promise<any> {
 		return new Promise((resolve, reject) => {
 			let modalHost = this.componentFactoryResolver
 			.resolveComponentFactory(CustomModalComponent)
@@ -26,7 +26,6 @@ export class CustomModalService {
 				let modalContainerRef = modalHost.instance.viewContainerRef;
 				modalContainerRef.clear();
 				let modalComponent = modalContainerRef.createComponent(this.componentFactoryResolver.resolveComponentFactory(modal));
-				modalComponent.instance.data = data;
 				modalComponent.instance.onConfirm.subscribe((value?: any) => {
 					resolve(value);
 					this.dismiss(modalHost);
