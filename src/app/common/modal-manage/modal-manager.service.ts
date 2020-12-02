@@ -62,7 +62,7 @@ export class ModalManager{
     }
   }
 
-  openModal() {
+  private openModal() {
     // 打开弹窗
     this.currentModal = this.queue.front();
     if (this.currentModal.custom) {
@@ -90,7 +90,7 @@ export class ModalManager{
     }
   }
 
-  closeModal() {
+  private closeModal() {
     this.currentModal = null;
     this.queue.dequeue();
     if (!this.queue.isEmpty()) {
@@ -98,7 +98,7 @@ export class ModalManager{
     }
   }
 
-  openHighLevelModal() {
+  private openHighLevelModal() {
     const currentHighLevelModal = this.highLevelQueue.front();
     if (currentHighLevelModal.custom) {
       this.customModalService.open(currentHighLevelModal.content)
@@ -119,7 +119,7 @@ export class ModalManager{
     }
   }
 
-  closeHighLevelModal() {
+  private closeHighLevelModal() {
     this.highLevelQueue.dequeue();
     if (!this.highLevelQueue.isEmpty()) {
       this.openHighLevelModal();
