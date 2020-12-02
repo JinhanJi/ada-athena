@@ -11,11 +11,6 @@ export class CustomModalService {
 		private appRef: ApplicationRef
 	) {}
 
-	getRootViewContainer(): ComponentRef<any> {
-    const rootComponents = this.appRef['_rootComponents'];
-    if (rootComponents.length) return rootComponents[0];
-  }
-
 	public open(modal: Type<CustomModal>): Promise<any> {
 		return new Promise((resolve, reject) => {
 			let modalHost = this.componentFactoryResolver
