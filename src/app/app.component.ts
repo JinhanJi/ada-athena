@@ -4,14 +4,35 @@ import { ModalManager } from './common/modal-manage/modal-manager.service';
 import { CustomModalService } from './common/custom-modal/custom-modal.service';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { CustomTestDialogComponent } from './components/custom-test-dialog/custom-test-dialog.component';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    trigger('openClose', [
+      state('open', style({
+        height: '60px',
+        opacity: 1
+      })),
+      state('closed', style({
+        height: '0',
+        opacity: 0
+      })),
+      transition('open => closed', [
+        animate('0.5s')
+      ]),
+      transition('closed => open', [
+        animate('0s')
+      ]),
+    ]),
+  ],
 })
 export class AppComponent implements OnInit {
   title = 'ada-athena';
+
+  showBar = false;
 
   constructor(
     private customModalService: CustomModalService,
@@ -69,4 +90,8 @@ export class AppComponent implements OnInit {
     //   this.modalService.push(DialogComponent, { priority: 1});
     // }, 1000);
   // }
+
+  hideBar() {
+    this.showBar = false;
+  }
 }
